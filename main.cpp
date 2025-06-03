@@ -2,8 +2,8 @@
 #include <vector>
 #include <iostream>
 #include <chrono>
-#include <cstdlib>  // для srand, rand
-#include <ctime>    // для time
+#include <cstdlib>  
+#include <ctime>    
 
 using namespace sf;
 using namespace std;
@@ -100,7 +100,7 @@ GameOfLife::GameOfLife(unsigned int width, unsigned int height, unsigned int til
     m_isPaused(true),         
     m_mouseWasPressed(false)
 {
-    // Тепер заповнюємо "построково"
+    
     for (unsigned int y = 0; y < m_tileCountY; y++) {
         for (unsigned int x = 0; x < m_tileCountX; x++) {
             m_tiles.emplace_back(m_tileSize, Vector2u(x * m_tileSize, y * m_tileSize));
@@ -130,7 +130,7 @@ int GameOfLife::countNeighbors(int x, int y) const {
             int nx = x + i;
             int ny = y + j;
 
-            // тороїдальне обгортання
+            
             if (nx < 0) nx = m_tileCountX - 1;
             if (nx >= static_cast<int>(m_tileCountX)) nx = 0;
             if (ny < 0) ny = m_tileCountY - 1;
@@ -153,7 +153,7 @@ void GameOfLife::update(int seconds) {
 
     m_lastUpdate = now;
 
-    // Перший прохід: розрахунок наступного стану
+  
     for (unsigned int y = 0; y < m_tileCountY; y++) {
         for (unsigned int x = 0; x < m_tileCountX; x++) {
             int idx = y * m_tileCountX + x;
@@ -161,7 +161,7 @@ void GameOfLife::update(int seconds) {
             m_tiles[idx].prepareNextState(neighbors);
         }
     }
-    // Другий прохід: оновлення станів
+  
     for (auto& tile : m_tiles) {
         tile.updateState();
     }

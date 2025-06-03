@@ -1,40 +1,32 @@
-# 🌱 Life
+Game of Life — SFML Implementation
 
-**Life** is a C++ implementation of Conway's Game of Life, a cellular automaton devised by mathematician John Conway. This simulation demonstrates how complex patterns can emerge from simple rules applied to a grid of cells.
+Description:
+This program implements Conway’s Game of Life using SFML for graphics and input handling.
+Each cell on the grid can be alive or dead, and the state updates according to the classic rules:
+- A live cell stays alive if it has 2 or 3 live neighbors.
+- A dead cell becomes alive if it has exactly 3 live neighbors.
+- Otherwise, the cell dies or remains dead.
 
-## 🎮 Features
+Features:
+- Pause and resume simulation with the Space key.
+- Toggle the state of a cell by clicking it with the left mouse button.
+- Clear the grid with the C key.
+- Randomize the grid with the R key.
+- Fullscreen mode at 1920x1080 resolution.
+- Frame rate limited to 60 FPS.
 
-- **Interactive Simulation**: Observe how patterns evolve over time based on initial configurations.
-- **Customizable Grid**: Modify the grid size and initial state to explore different scenarios.
-- **Performance Optimized**: Efficient algorithms ensure smooth simulations even on larger grids.
+Controls:
+- Left mouse button — toggle cell state.
+- Space — pause/resume simulation.
+- C — clear the grid.
+- R — randomize the grid.
+- Esc or window close — exit the program.
 
-## 🧩 How It Works
+Build:
+Requires SFML 2.x installed.
+Example compile command (g++):
 
-The Game of Life operates on a two-dimensional grid of cells, each of which can be in one of two states: alive or dead. The state of each cell evolves over discrete time steps according to the following rules:
+g++ -std=c++17 main.cpp -o GameOfLife -lsfml-graphics -lsfml-window -lsfml-system
 
-1. **Underpopulation**: A live cell with fewer than two live neighbors dies.
-2. **Survival**: A live cell with two or three live neighbors lives on to the next generation.
-3. **Overpopulation**: A live cell with more than three live neighbors dies.
-4. **Reproduction**: A dead cell with exactly three live neighbors becomes a live cell.
-
-These simple rules lead to a rich variety of behaviors and patterns.
-
-## 🛠️ Getting Started
-
-### Prerequisites
-
-- A C++ compiler supporting C++11 or later (e.g., `g++`, `clang++`)
-
-### Building the Project
-
-1. **Clone the repository**:
-
-   ```bash
-   git clone https://github.com/SigmaGit1eR/Life.git
-   cd Life
-2. **Compile the source code**:
-   ```bash
-   g++ -std=c++11 main.cpp -o life
-3. **Run the simulation**:
-   ```bash
-   ./life
+Run:
+Execute the compiled binary. The simulation starts paused by default.
